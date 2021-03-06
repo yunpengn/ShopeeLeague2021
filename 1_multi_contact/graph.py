@@ -72,7 +72,8 @@ print("Finished calculating components.")
 trace_dict = dict()
 for component in components:
   # Performs string concat.
-  trace = "-".join([str(tk) for tk in component])
+  lst = [str(tk) for tk in component]
+  trace = "-".join(sorted(lst))
 
   # Gets the total number of contacts.
   total = 0
