@@ -1,3 +1,4 @@
+import csv
 import networkx as nx
 import pandas as pd
 
@@ -55,8 +56,38 @@ for index, row in contacts.iterrows():
   # Finds all tickets with the same order ID.
   for ticket_id in order_dict[current_ticket_id]:
     G.add_edge(current_ticket_id, ticket_id)
+print("Finished building graph.")
+
+# Gets all connected components.
+components = list(nx.connected_components(G))
+print("Finished calculating components.")
+
+# Processes each component.
+trace_dict = dict()
+for component in components:
+  # Performs string concat.
+  trace = "-".join([str(tk) for tk in component])
+
+  # Gets the total number of contacts.
+  total = 0
+  for node in component:
+    count = contact_dict[node]['Contacts']
+    total = total + count
+
+  # Gets output format
+  output_line = trace + ", " + str(total)
+
+  # Iterates over each node.
+  for node in component:
+    trace_dict[node] = output_line
 
 # Converts to CSV.
-df = pd.DataFrame(data={"ticket_trace/contact": output_data})
-df.to_csv("output.csv", sep=',', index=True, index_label="ticket_id")
-print("Finished converting to CSV file")
+output_file = open('output.csv', 'w', newline='')
+csv_writter = csv.writer(output_file, delimiter=', ')
+
+# Outputs per line.
+for i in range(500000):
+  if index % 50000 == 0:
+    print('Current writing in #{} row.'.format(index))
+
+  csv_writter.writerow([i, trace_dict[i]])
