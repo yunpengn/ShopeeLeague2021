@@ -90,7 +90,7 @@ print("Finished processing each component")
 
 # Converts to CSV.
 output_file = open('output.csv', 'w', newline='')
-csv_writter = csv.writer(output_file, delimiter=',')
+csv_writter = csv.writer(output_file, delimiter=',', quoting=csv.QUOTE_NONE)
 
 # Outputs header.
 csv_writter.writerow(['ticket_id', 'ticket_trace/contact'])
