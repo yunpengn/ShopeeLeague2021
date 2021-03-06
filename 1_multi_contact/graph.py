@@ -46,16 +46,19 @@ for index, row in contacts.iterrows():
 
   # Finds all tickets with the same email.
   current_ticket_id = row["Id"]
-  for ticket_id in email_dict[current_ticket_id]:
-    G.add_edge(current_ticket_id, ticket_id)
+  if email_dict[current_ticket_id]:
+    for ticket_id in email_dict[current_ticket_id]:
+      G.add_edge(current_ticket_id, ticket_id)
 
   # Finds all tickets with the same phone number.
-  for ticket_id in phone_dict[current_ticket_id]:
-    G.add_edge(current_ticket_id, ticket_id)
+  if phone_dict[current_ticket_id]:
+    for ticket_id in phone_dict[current_ticket_id]:
+      G.add_edge(current_ticket_id, ticket_id)
 
   # Finds all tickets with the same order ID.
-  for ticket_id in order_dict[current_ticket_id]:
-    G.add_edge(current_ticket_id, ticket_id)
+  if order_dict[current_ticket_id]:
+    for ticket_id in order_dict[current_ticket_id]:
+      G.add_edge(current_ticket_id, ticket_id)
 print("Finished building graph.")
 
 # Gets all connected components.
