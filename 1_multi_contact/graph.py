@@ -85,6 +85,9 @@ for component in components:
 output_file = open('output.csv', 'w', newline='')
 csv_writter = csv.writer(output_file, delimiter=', ')
 
+# Outputs header.
+csv_writter.writerow(['ticket_id', 'ticket_trace/contact'])
+
 # Outputs per line.
 for i in range(500000):
   if index % 50000 == 0:
