@@ -78,7 +78,7 @@ for component in components:
     total = total + count
 
   # Gets output format
-  output_line = trace + ", " + str(total)
+  output_line = " " + trace + ", " + str(total)
 
   # Iterates over each node.
   for node in component:
@@ -87,7 +87,7 @@ print("Finished processing each component")
 
 # Converts to CSV.
 output_file = open('output.csv', 'w', newline='')
-csv_writter = csv.writer(output_file, delimiter=', ')
+csv_writter = csv.writer(output_file, delimiter=',')
 
 # Outputs header.
 csv_writter.writerow(['ticket_id', 'ticket_trace/contact'])
