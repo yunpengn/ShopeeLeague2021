@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Reads input.
-contacts = pd.read_json("contacts.json")
+contacts = pd.read_json("/Users/yunpeng/Downloads/contacts.json")
 contacts.head()
 
 # Creates a map from email to a list of ticket IDs.
@@ -93,10 +93,15 @@ for index, row in contacts.iterrows():
 output_data = []
 
 for index, trace in enumerate(trace_dict):
+  if index % 10000 == 0:
+    print('Current going in #{} row.'.format(index))
+
   count = count_dict[index]
   output_line = trace + ", " + str(count_dict)
   output_data.append(output_data)
+print("Finished output_data")
 
 # Converts to CSV.
 df = pandas.DataFrame(data={"ticket_trace/contact": output_data})
 df.to_csv("output.csv", sep=',', index=True, index_label="ticket_id")
+print("Finished converting to CSV file")
