@@ -102,3 +102,7 @@ for i in range(500000):
 
   output_file.write(str(i) + ', ' + trace_dict[i] + '\n')
 print("Finished writing body")
+
+# Closes file.
+output_file.close()
+print("Finished")
