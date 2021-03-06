@@ -100,7 +100,7 @@ for i in range(500000):
   if index % 50000 == 0:
     print('Current writing in #{} row.'.format(index))
 
-  output_file.write(str(i) + ', ' + trace_dict[i] + '\n')
+  output_file.write(str(i) + ', \"' + trace_dict[i] + '\"\n')
 print("Finished writing body")
 
 # Closes file.
