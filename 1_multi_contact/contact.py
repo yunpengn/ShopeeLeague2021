@@ -99,6 +99,6 @@ for index, trace in enumerate(trace_dict):
 print("Finished output_data")
 
 # Converts to CSV.
-df = pandas.DataFrame(data={"ticket_trace/contact": output_data})
+df = pd.DataFrame(data={"ticket_trace/contact": output_data})
 df.to_csv("output.csv", sep=',', index=True, index_label="ticket_id")
 print("Finished converting to CSV file")
