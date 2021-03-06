@@ -44,6 +44,9 @@ for index, row in contacts.iterrows():
   if index % 10000 == 0:
     print('Current going in #{} row.'.format(index))
 
+  # Adds node first.
+  G.add_node(current_ticket_id)
+
   # Finds all tickets with the same email.
   current_ticket_id = row["Id"]
   if current_ticket_id in email_dict:
