@@ -89,7 +89,7 @@ for component in components:
 print("Finished processing each component")
 
 # Converts to CSV.
-output_file = open('output.csv', 'w', newline='')
+output_file = open('output.csv', 'w')
 
 # Outputs header.
 output_file.write('ticket_id, ticket_trace/contact\n')
