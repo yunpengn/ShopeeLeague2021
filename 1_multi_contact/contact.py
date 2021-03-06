@@ -93,11 +93,8 @@ for index, row in contacts.iterrows():
 output_data = []
 
 for index, trace in enumerate(trace_dict):
-  if index % 10000 == 0:
-    print('Current going in #{} row.'.format(index))
-
   count = count_dict[index]
-  output_line = trace + ", " + str(count_dict)
+  output_line = trace + ", " + str(count)
   output_data.append(output_data)
 print("Finished output_data")
 
