@@ -90,10 +90,9 @@ print("Finished processing each component")
 
 # Converts to CSV.
 output_file = open('output.csv', 'w', newline='')
-csv_writter = csv.writer(output_file, delimiter=',', quoting=csv.QUOTE_NONE)
 
 # Outputs header.
-csv_writter.writerow(['ticket_id', 'ticket_trace/contact'])
+output_file.write('ticket_id, ticket_trace/contact\n')
 print("Finished writing header")
 
 # Outputs per line.
@@ -101,5 +100,5 @@ for i in range(500000):
   if index % 50000 == 0:
     print('Current writing in #{} row.'.format(index))
 
-  csv_writter.writerow([i, trace_dict[i]])
+  output_file.write(str(i) + ', ' + trace_dict[i] + '\n')
 print("Finished writing body")
