@@ -74,7 +74,7 @@ for component in components:
   # Performs string concat.
   lst = [tk for tk in component]
   sorted_lst = sorted(lst)
-  sorted_lst_str = [str(tk) for tk in component]
+  sorted_lst_str = [str(tk) for tk in sorted_lst]
   trace = "-".join(sorted_lst_str)
 
   # Gets the total number of contacts.
