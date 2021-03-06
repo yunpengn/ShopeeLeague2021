@@ -80,6 +80,7 @@ for component in components:
   # Iterates over each node.
   for node in component:
     trace_dict[node] = output_line
+print("Finished processing each component")
 
 # Converts to CSV.
 output_file = open('output.csv', 'w', newline='')
@@ -87,6 +88,7 @@ csv_writter = csv.writer(output_file, delimiter=', ')
 
 # Outputs header.
 csv_writter.writerow(['ticket_id', 'ticket_trace/contact'])
+print("Finished writing header")
 
 # Outputs per line.
 for i in range(500000):
@@ -94,3 +96,4 @@ for i in range(500000):
     print('Current writing in #{} row.'.format(index))
 
   csv_writter.writerow([i, trace_dict[i]])
+print("Finished writing body")
