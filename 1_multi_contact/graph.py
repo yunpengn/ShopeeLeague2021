@@ -49,18 +49,18 @@ for index, row in contacts.iterrows():
   G.add_node(current_ticket_id)
 
   # Finds all tickets with the same email.
-  if current_ticket_id in email_dict:
-    for ticket_id in email_dict[current_ticket_id]:
+  if row['Email'] in email_dict:
+    for ticket_id in email_dict[row['Email']]:
       G.add_edge(current_ticket_id, ticket_id)
 
   # Finds all tickets with the same phone number.
-  if current_ticket_id in phone_dict:
-    for ticket_id in phone_dict[current_ticket_id]:
+  if row['Phone'] in phone_dict:
+    for ticket_id in phone_dict[row['Phone']]:
       G.add_edge(current_ticket_id, ticket_id)
 
   # Finds all tickets with the same order ID.
-  if current_ticket_id in order_dict:
-    for ticket_id in order_dict[current_ticket_id]:
+  if row['OrderId'] in order_dict:
+    for ticket_id in order_dict[row['OrderId']]:
       G.add_edge(current_ticket_id, ticket_id)
 print("Finished building graph.")
 
